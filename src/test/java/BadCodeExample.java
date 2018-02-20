@@ -1,9 +1,9 @@
-import org.junit.Assert;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 
 import java.util.Iterator;
@@ -12,7 +12,7 @@ import java.util.List;
 import static java.lang.Thread.sleep;
 
 public class BadCodeExample {
-    //@Test
+    @Test
     public static void main (String args[]) {
         System.out.println("Hello world");
         System.setProperty("webdriver.gecko.driver", "./src/main/resources/drivers/geckodriver.exe");
