@@ -46,4 +46,24 @@ public class LoginPage {
         signInButton.click();
     }
 
+    public void waitUntilElementClickable(By locator) {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
+    public void waitUntilElementClickable(By locator, int timeOutInSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds);
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
+    public void waitUntilElementClickable(WebElement webElement) {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.elementToBeClickable(webElement));
+    }
+
+    public void waitUntilElementClickable(WebElement webElement, int timeOutInSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds);
+        wait.until(ExpectedConditions.elementToBeClickable(webElement));
+    }
+
 }
