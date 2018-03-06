@@ -1,10 +1,8 @@
 package linkedin;
 
 import Drivers.Drivers;
-import linkedin.pages.LoginPage;
+import linkedin.pages.LinkedinLandingPage;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -12,12 +10,10 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-import static Drivers.Drivers.firefox;
 
 
 public class LinkedinSearchTest {
+    public Drivers drivers;
     public WebDriver driver;
     public WebDriverWait wait;
     public Actions actions;
@@ -43,7 +39,6 @@ public class LinkedinSearchTest {
     public WebElement startSearchButton;
 
     public List<WebElement> searchResults;
-    //public WebElement nextPage;
 
     @BeforeClass
     public void beforeClass() {
@@ -60,13 +55,13 @@ public class LinkedinSearchTest {
 
     @BeforeMethod
     public void beforeTest() {
-        driver = Drivers.firefox();
+        driver = drivers.firefox();
 
         wait = new WebDriverWait(driver, 30);
         actions = new Actions(driver);
         js = ((JavascriptExecutor) driver);
         driver.get("https://www.linkedin.com/");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
     }
 
     @AfterMethod
@@ -76,8 +71,8 @@ public class LinkedinSearchTest {
 
     @Test
     public void tc1_searchTest1() {
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.loginAs(email, password);
+        LinkedinLandingPage linkedinLandingPage = new LinkedinLandingPage(driver);
+        linkedinLandingPage.loginAs(email, password);
 
         String searchText = "hr";
         wait.until(ExpectedConditions.visibilityOfElementLocated(searchFieldLocator));

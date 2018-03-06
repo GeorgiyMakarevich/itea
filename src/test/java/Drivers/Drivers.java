@@ -15,15 +15,15 @@ public class Drivers {
 
 
     }
-    public static WebDriver chrome() {
+    public WebDriver chrome() {
         System.setProperty("webdriver.chrome.driver", "./src/main/resources/drivers/chromedriver.exe");
         return new ChromeDriver();
     }
-    public static WebDriver firefox() {
+    public WebDriver firefox() {
         System.setProperty("webdriver.gecko.driver", "./src/main/resources/drivers/geckodriver.exe");
         return new FirefoxDriver();
     }
-    public static WebDriver ie() {
+    public WebDriver ie() {
         System.setProperty("webdriver.ie.driver", "./src/main/resources/drivers/IEDriverServer.exe");
         return new InternetExplorerDriver();
     }
