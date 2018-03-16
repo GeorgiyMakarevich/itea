@@ -1,7 +1,7 @@
-package linkedin;
+package linkedin.test;
 
 import Drivers.Drivers;
-import linkedin.pages.LinkedinLandingPage;
+import linkedin.page.LinkedinLandingPage;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;

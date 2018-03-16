@@ -1,4 +1,4 @@
-package linkedin.pages;
+package linkedin.page;
 
 import org.openqa.selenium.WebDriver;
 

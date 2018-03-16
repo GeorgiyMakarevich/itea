@@ -1,4 +1,4 @@
-package linkedin.pages;
+package linkedin.page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -27,7 +27,7 @@ public class LinkedinLandingPage extends BasePage {
     public LinkedinLandingPage(WebDriver someDriver) {
         super(someDriver);
         url = "https://www.linkedin.com/";
-        PageFactory.initElements(driver, this);
+        //PageFactory.initElements(driver, this);
     }
 
     /*
@@ -53,6 +53,19 @@ public class LinkedinLandingPage extends BasePage {
     public String getErrorMessage() {
         //initErrorElements();
         return errorMessageDiv.getText();
+    }
+
+    public <T> T loginAsGeneric(String email, String password) {
+        //initElements();
+        emailField.sendKeys(email);
+        passwordField.sendKeys(password);
+        signInButton.click();
+        if(signInButton.isDisplayed()) {
+            return (T) this;
+        } else {
+            //return (T) new LinkedinHomePage(driver);
+            return (T) PageFactory.initElements(driver, LinkedinHomePage.class);
+        }
     }
 
     public void loginAs(String email, String password) {

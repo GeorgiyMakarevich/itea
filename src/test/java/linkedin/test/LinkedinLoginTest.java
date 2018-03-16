@@ -1,7 +1,7 @@
-package linkedin;
+package linkedin.test;
 
-import linkedin.pages.LinkedinHomePage;
-import linkedin.pages.LinkedinLandingPage;
+import linkedin.page.LinkedinHomePage;
+import linkedin.page.LinkedinLandingPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
@@ -39,8 +39,6 @@ public class LinkedinLoginTest {
         linkedinLandingPage.open();
         titleBeforeSignIn = linkedinLandingPage.getPageTitle();
         urlBeforeSignIn = linkedinLandingPage.getPageUrl();
-
-
     }
 
     @AfterMethod
